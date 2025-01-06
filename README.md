@@ -5,8 +5,11 @@ A package for calculating Financial Services specifically for loans or investmen
 ## Contributors
 
 Ziming Fang
+
 Chaoyu Ou
+
 Meagan Gardner
+
 Zoe Ren
 
 ## Installation
