@@ -2,6 +2,13 @@
 
 A package for calculating Financial Services specifically for loans or investment scenarios.
 
+## Contributors
+
+Ziming Fang
+Chaoyu Ou
+Meagan Gardner
+Zoe Ren
+
 ## Installation
 
 ```bash
