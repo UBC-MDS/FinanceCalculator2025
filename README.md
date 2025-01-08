@@ -1,22 +1,57 @@
-# financecalculator
+# **Finance Calculator**
 
-A package for calculating Financial Services specifically for loans or investment scenarios.
+## Project Summary
+
+**financecalculator** is a Python package for calculating Financial Services specifically for loans or investment scenarios.
+This package serves as a convenient tool for managing personal finances, offering functionalities such as Periodic Payment(PMT) Calculation, Future Value(FV) Calculation, Present Value(PV) Calculation, and Frequency(N) Calculation.
 
 ## Contributors
 
-Ziming Fang
+Chaoyu Ou(Shell-human)
 
-Chaoyu Ou
+Meagan Gardner(meagangardner)
 
-Meagan Gardner
+Ziming Fang(ethanfang08)
 
-Zoe Ren
+Zoe Ren(sgdkd)
 
 ## Installation
 
 ```bash
 $ pip install financecalculator
 ```
+
+## Package Content
+
+This package offers four functions: PMT Calculation, FV Calculation, PV Calculation, N Calculation.
+
+### Functions:
+
+1. PMT Calculation
+
+2. FV Calculation
+
+3. PV Calculation
+
+    ```present_value(principal, annual_rate, n_periods, contribution=0)```
+
+    Calculates the present value of an investment or loan, accounting for optional contributions.
+
+4. N Calculation
+
+### Common Parameters:
+
+```principal``` *(float)*: The initial investment or loan amount.
+
+```annual_rate``` *(float)*: Annual interest rate (as a percentage, e.g., 5 for 5%).
+
+```n_periods``` *(int)*: Total number of periods (in months).
+
+```contribution``` *(float, optional)*: Payment made per period (monthly contributions). Defaults to 0 if not provided.
+
+## Python Ecosystem
+
+The financial calculator project situates itself within the Python ecosystem as a learning-oriented initiative aimed at developing practical skills in financial computation and programming. While the Python ecosystem already includes robust packages and applications like [Loan Calculator](https://github.com/yanomateus/loan-calculator) and [Financial Calculator App](https://github.com/dilumdesilva/Financial-Calculator-App), this project serves as a valuable hands-on exercise for those seeking to deepen their understanding of financial concepts and Python development.
 
 ## Usage
 
