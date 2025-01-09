@@ -1,4 +1,4 @@
-def calculate_n_periods(principal, annual_rate, future_value, contribution=0):
+def n_periods(principal, annual_rate, future_value, contribution=0):
     """
     Calculates the number of periods (in months) needed to reach a specified future value,
     given an initial principal, an annual interest rate, and optional monthly contributions.
