@@ -1,19 +1,22 @@
 # **Finance Calculator**
 
+---
+
 ## Project Summary
 
-**financecalculator** is a Python package for calculating Financial Services specifically for loans or investment scenarios.
-This package serves as a convenient tool for managing personal finances, offering functionalities such as Periodic Payment(PMT) Calculation, Future Value(FV) Calculation, Present Value(PV) Calculation, and Frequency(N) Calculation.
+**financecalculator** is a Python package for calculating financial metrics specifically designed for loans or investment scenarios.  
+This package serves as a convenient tool for managing personal finances, offering functionalities such as Periodic Payment (contribution) Calculation, Future Value (FV) Calculation, Present Value (PV) Calculation, and Frequency (N) Calculation.
+
+---
 
 ## Contributors
 
-Chaoyu Ou(Shell-human)
+- Chaoyu Ou (Shell-human)  
+- Meagan Gardner (meagangardner)  
+- Ziming Fang (ethanfang08)  
+- Zoe Ren (sgdkd)  
 
-Meagan Gardner(meagangardner)
-
-Ziming Fang(ethanfang08)
-
-Zoe Ren(sgdkd)
+---
 
 ## Installation
 
@@ -21,53 +24,98 @@ Zoe Ren(sgdkd)
 $ pip install financecalculator
 ```
 
+---
+
 ## Package Content
 
-This package offers four functions: PMT Calculation, FV Calculation, PV Calculation, N Calculation.
+This package offers four key functions:  
 
-### Functions:
+### **Functions:**
 
-1. PMT Calculation
+1. **contribution Calculation**  
+   ```python
+   calculate_contribution(principal, future_value, annual_rate, n_periods)
+   ```
+   Calculates the periodic payment (contribution) required to pay off a loan or reach a specified future value over a given number of periods.
 
-2. FV Calculation
+2. **FV Calculation**  
+   ```python
+   future_value(principal, annual_rate, n_periods, contribution=0)
+   ```
+   Calculates the future value of an investment or loan, factoring in optional periodic contributions.
 
-3. PV Calculation
+3. **PV Calculation**  
+   ```python
+   present_value(principal, annual_rate, n_periods, contribution=0)
+   ```
+   Calculates the present value of an investment or loan, considering optional monthly contributions.
 
-    ```present_value(principal, annual_rate, n_periods, contribution=0)```
+4. **N Calculation**  
+   ```python
+   n_periods(principal, annual_rate, future_value, contribution=0)
+   ```
+   Calculates the number of periods (in months) required to reach a specified future value, given an initial principal, an annual interest rate, and optional monthly contributions.
 
-    Calculates the present value of an investment or loan, accounting for optional contributions.
+---
 
-4. N Calculation
+### **Common Parameters:**
 
-    ```n_periods(principal, annual_rate, future_value, contribution=0)```
+- **`principal`** *(float)*:  
+  The initial investment or loan amount (also known as Present Value in financial terms).
 
-    Calculates the number of periods (in months) needed to reach a specified future value.
+- **`future_value`** *(float)*:  
+  The desired amount at the end of the calculation period (e.g., remaining loan balance or target savings).
 
-### Common Parameters:
+- **`annual_rate`** *(float)*:  
+  Annual interest rate expressed as a percentage (e.g., 5 for 5%).
 
-```principal``` *(float)*: The initial investment or loan amount.
+- **`n_periods`** *(int)*:  
+  Total number of periods (typically in months) over which the calculation will be performed.
 
-```annual_rate``` *(float)*: Annual interest rate (as a percentage, e.g., 5 for 5%).
+- **`contribution`** *(float, optional)*:  
+  The amount paid or contributed per period (e.g., monthly contributions). Defaults to 0 if not provided.
 
-```n_periods``` *(int)*: Total number of periods (in months).
-
-```contribution``` *(float, optional)*: Payment made per period (monthly contributions). Defaults to 0 if not provided.
+---
 
 ## Python Ecosystem
 
 The financial calculator project situates itself within the Python ecosystem as a learning-oriented initiative aimed at developing practical skills in financial computation and programming. While the Python ecosystem already includes robust packages and applications like [Loan Calculator](https://github.com/yanomateus/loan-calculator) and [Financial Calculator App](https://github.com/dilumdesilva/Financial-Calculator-App), this project serves as a valuable hands-on exercise for those seeking to deepen their understanding of financial concepts and Python development.
 
+---
+
 ## Usage
 
-- TODO
+The `financecalculator` package allows users to perform essential financial calculations conveniently. Below are some examples of how to use this package:
+
+```python
+from financecalculator import calculate_contribution, future_value, present_value, n_periods
+
+# Calculate periodic payments for a loan
+payment = calculate_contribution(principal=20000, future_value=0, annual_rate=5, n_periods=24)
+
+# Calculate future value of an investment
+fv = future_value(principal=5000, annual_rate=7, n_periods=36, contribution=200)
+
+# Calculate present value for a target amount
+pv = present_value(principal=0, annual_rate=4, n_periods=12, contribution=500)
+
+# Calculate the number of months to reach a goal
+months = n_periods(principal=10000, annual_rate=6, future_value=50000, contribution=300)
+```
+
+---
 
 ## Contributing
 
 Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
 
+---
+
 ## License
 
 `financecalculator` was created by Meagan Gardner. It is licensed under the terms of the MIT license.
+
+---
 
 ## Credits
 
