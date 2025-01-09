@@ -5,7 +5,7 @@
 ## Project Summary
 
 **financecalculator** is a Python package for calculating financial metrics specifically designed for loans or investment scenarios.  
-This package serves as a convenient tool for managing personal finances, offering functionalities such as Periodic Payment (PMT) Calculation, Future Value (FV) Calculation, Present Value (PV) Calculation, and Frequency (N) Calculation.
+This package serves as a convenient tool for managing personal finances, offering functionalities such as Periodic Payment (contribution) Calculation, Future Value (FV) Calculation, Present Value (PV) Calculation, and Frequency (N) Calculation.
 
 ---
 
@@ -29,7 +29,7 @@ $ pip install financecalculator
 ## Package Content
 
 This package offers four key functions:  
-1. **PMT Calculation**  
+1. **contribution Calculation**  
 2. **FV Calculation**  
 3. **PV Calculation**  
    ```python
@@ -47,11 +47,11 @@ This package offers four key functions:
 
 ### **Functions:**
 
-1. **PMT Calculation**  
+1. **contribution Calculation**  
    ```python
-   calculate_pmt(principal, future_value, annual_rate, n_periods)
+   calculate_contribution(principal, future_value, annual_rate, n_periods)
    ```
-   Calculates the periodic payment (PMT) required to pay off a loan or reach a specified future value over a given number of periods.
+   Calculates the periodic payment (contribution) required to pay off a loan or reach a specified future value over a given number of periods.
 
 2. **FV Calculation**  
    ```python
@@ -103,10 +103,10 @@ The financial calculator project situates itself within the Python ecosystem as 
 The `financecalculator` package allows users to perform essential financial calculations conveniently. Below are some examples of how to use this package:
 
 ```python
-from financecalculator import calculate_pmt, future_value, present_value, n_periods
+from financecalculator import calculate_contribution, future_value, present_value, n_periods
 
 # Calculate periodic payments for a loan
-payment = calculate_pmt(principal=20000, future_value=0, annual_rate=5, n_periods=24)
+payment = calculate_contribution(principal=20000, future_value=0, annual_rate=5, n_periods=24)
 
 # Calculate future value of an investment
 fv = future_value(principal=5000, annual_rate=7, n_periods=36, contribution=200)
