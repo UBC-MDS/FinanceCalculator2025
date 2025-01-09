@@ -30,32 +30,6 @@ $ pip install financecalculator
 
 This package offers four key functions:  
 
-1. **Contribution Calculation**  
-   ```python
-   calculate_contribution(principal, future_value, annual_rate, n_periods)
-   ```
-   Calculates the periodic contribution required to pay off a loan or reach a specified future value over a given number of periods.
-
-2. **FV Calculation**  
-   ```python
-   future_value(principal, annual_rate, n_periods, contribution=0)
-   ```
-   Calculates the future value of an investment or loan, factoring in optional periodic contributions.
-
-3. **PV Calculation**  
-   ```python
-   present_value(principal, annual_rate, n_periods, contribution=0)
-   ```
-   Calculates the present value of an investment or loan, accounting for optional contributions.
-
-4. **N Calculation**  
-   ```python
-   n_periods(principal, annual_rate, future_value, contribution=0)
-   ```
-   Calculates the number of periods (in months) needed to reach a specified future value.
-
----
-
 ### **Functions:**
 
 1. **contribution Calculation**  
