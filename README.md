@@ -39,6 +39,10 @@ This package offers four functions: PMT Calculation, FV Calculation, PV Calculat
 
 4. N Calculation
 
+    ```n_periods(principal, annual_rate, future_value, contribution=0)```
+
+    Calculates the number of periods (in months) needed to reach a specified future value.
+
 ### Common Parameters:
 
 ```principal``` *(float)*: The initial investment or loan amount.
