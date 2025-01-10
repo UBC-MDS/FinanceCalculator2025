@@ -1,4 +1,4 @@
-# Contributing
+# Contributing to FinanceCalculator
 
 Contributions are welcome, and they are greatly appreciated! Every little bit
 helps, and credit will always be given.
@@ -70,4 +70,5 @@ Before you submit a pull request, check that it meets these guidelines:
 ## Code of Conduct
 
 Please note that the `financecalculator` project is released with a
-Code of Conduct. By contributing to this project you agree to abide by its terms.
+[Contributor Code of
+Conduct](CODE_OF_CONDUCT.md). By contributing to this project you agree to abide by its terms.
