@@ -11,10 +11,10 @@ This package serves as a convenient tool for managing personal finances, offerin
 
 ## Contributors
 
-- Chaoyu Ou (Shell-human)  
-- Meagan Gardner (meagangardner)  
-- Ziming Fang (ethanfang08)  
-- Zoe Ren (sgdkd)  
+- Chaoyu Ou (@Shell-human)  
+- Meagan Gardner (@meagangardner)  
+- Ziming Fang (@ethanfang08)  
+- Zoe Ren (@sgdkd)  
 
 ---
 
@@ -79,7 +79,7 @@ This package offers four key functions:
 
 ## Python Ecosystem
 
-The financial calculator project situates itself within the Python ecosystem as a learning-oriented initiative aimed at developing practical skills in financial computation and programming. While the Python ecosystem already includes robust packages and applications like [Loan Calculator](https://github.com/yanomateus/loan-calculator) and [Financial Calculator App](https://github.com/dilumdesilva/Financial-Calculator-App), this project serves as a valuable hands-on exercise for those seeking to deepen their understanding of financial concepts and Python development.
+The financial calculator project situates itself within the Python ecosystem as a learning-oriented initiative aimed at developing practical skills in financial computation and programming. While the Python ecosystem already includes robust packages and applications like [Loan Calculator](https://github.com/yanomateus/loan-calculator) and [Financial Calculator App](https://github.com/dilumdesilva/Financial-Calculator-App), this project differentiates itself by offering an accessible, user-friendly tools that simplifies core financial concepts. With intuitive function names like calculate_contribution, future_value, and present_value, it allows users — especially beginners and students — to quickly grasp the essentials without needing to understand complex financial formulas. This project also serves as a hands-on exercise for those eager to deepen their understanding of both finance and Python programming, making it a valuable resource for anyone looking to deepen their understanding of financial concepts and Python development.
 
 ---
 
@@ -113,7 +113,7 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 
 ## License
 
-`financecalculator` was created by Meagan Gardner. It is licensed under the terms of the MIT license.
+`financecalculator` was created by Meagan Gardner, Zoe Ren, Ziming Fang, and Chaoyu Ou. It is licensed under the terms of the MIT license.
 
 ---
 
