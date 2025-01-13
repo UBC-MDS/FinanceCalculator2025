@@ -1,3 +1,6 @@
+import pandas as pd
+import warnings
+
 def future_value(principal, annual_rate, n_periods, contribution=0):
     """
     Calculates the future value of an investment with optional monthly contributions.
@@ -22,3 +25,75 @@ def future_value(principal, annual_rate, n_periods, contribution=0):
             - 'Contributions': Total amount contributed over the investment period.
             - 'Interest Earned': The total interest earned from the investment.
     """
+
+    # Check input types are correct
+        # Type checks
+    if not isinstance(principal, (int, float)):
+        raise TypeError("Principal must be a number (int or float).")
+    if not isinstance(annual_rate, (int, float)):
+        raise TypeError("Annual rate must be a number (int or float).")
+    if not isinstance(n_periods, int):
+        raise TypeError("Number of periods must be an integer.")
+    if not isinstance(contribution, (int, float)):
+        raise TypeError("Contribution must be a number (int or float).")
+    
+    # Check all values are positive, and annual_rate is between 0 and 100
+        # Range checks
+    if principal < 0:
+        raise ValueError("Principal cannot be negative.")
+    if annual_rate < 0:
+        raise ValueError("Annual interest rate cannot be negative.")
+    if n_periods <= 0:
+        raise ValueError("Number of periods must be a positive integer.")
+    if contribution < 0:
+        raise ValueError("Contribution cannot be negative.")
+    
+    # Throw an error if n_periods is 0
+    if n_periods == 0:
+        raise ValueError("The number of periods must be greater than zero.")
+    
+    # If annual rate provided is 0, issue a warning that future value will be equal to principal plus contributions
+    if annual_rate == 0:
+        warnings.warn("You entered an annual interest rate of 0. The future value will be equal to the principal plus contributions.", UserWarning)
+
+    # If annual rate is between 0 and 1, issue a warning if the annual rate seems to catch if user accidentally entered percentage as a decimal
+    if 0 < annual_rate <1:
+        warnings.warn("Warning: The annual interest rate entered seems quite low. "
+                       "Did you mean to enter it as a percentage (e.g., 5 for 5%)?", UserWarning)
+        
+     # Check if the user entered an unusually low value for n_periods (anything less than 6 months), and remind them it's in years
+    if n_periods <= 5:
+        warnings.warn("Warning: The number of periods entered seems quite low. "
+                      "Note that n_periods should be entered in months (e.g., 12 months instead of 1 year)", UserWarning)
+
+    # Calculate monthly interest rate from annual_rate and convert to decimal
+    int_rate = annual_rate/12/100
+
+    # Calculate value of contributions
+    if int_rate == 0:  # If interest rate is zero, just multiply contribution by number of periods
+        contribution_value = contribution * n_periods
+    else:
+        contribution_value = contribution * (((1 + int_rate) ** n_periods - 1) / int_rate)
+
+    # Calculate future value
+    future_value = round((principal * (1 + int_rate) ** n_periods + contribution_value),2)
+
+    # Calculate total contributions
+    total_contributions = contribution * n_periods
+
+    # Calculate total interest earned
+    if principal == 0:
+        interest_earned = round((future_value - total_contributions), 2)
+    else:
+        interest_earned = round((future_value - (principal + total_contributions)), 2)
+
+    #Create return dataframe
+    data = {
+        'Future Value': [future_value],
+        'Principal': [principal],
+        'Contributions': [total_contributions],
+        'Interest Earned': [interest_earned]
+    }
+
+    # Return dataframe as function output
+    return pd.DataFrame(data)
