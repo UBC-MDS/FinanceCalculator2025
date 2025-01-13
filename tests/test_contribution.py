@@ -1,0 +1,2 @@
+from financecalculator.contribution import calculate_contribution
+import pytest

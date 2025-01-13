@@ -11,10 +11,10 @@ This package serves as a convenient tool for managing personal finances, offerin
 
 ## Contributors
 
-- Chaoyu Ou (@Shell-human)  
-- Meagan Gardner (@meagangardner)  
-- Ziming Fang (@ethanfang08)  
-- Zoe Ren (@sgdkd)  
+- Chaoyu Ou [Shell-human](https://github.com/Shell-human)  
+- Meagan Gardner [meagangardner](https://github.com/meagangardner)
+- Ziming Fang [ethanfang08](https://github.com/ethanfang08)  
+- Zoe Ren [sgdkd](https://github.com/sgdkd)  
 
 ---
 
