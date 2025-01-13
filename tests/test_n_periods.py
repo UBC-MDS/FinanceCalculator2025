@@ -1,0 +1,2 @@
+from financecalculator.n_periods import n_periods
+import pytest
