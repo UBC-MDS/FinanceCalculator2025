@@ -21,5 +21,41 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
             - 'Principal': The initial investment or loan amount.
             - 'Contributions': Total amount contributed over the investment period.
             - 'Interest Saved': The amount of interest avoided by paying a lump sum today instead 
-                of spreading payments over time.(Can be negative in ininvestment)
+                of spreading payments over time.
+
+    Examples
+    --------
+    >>> present_value(principal=1000, annual_rate=5, n_periods=120, contribution=100)
     """
+    import pandas as pd
+
+    # Check if all inputs are numbers.
+    if not all(isinstance(arg, (int, float)) for arg in [principal, annual_rate, n_periods, contribution]):
+        raise ValueError("Please enter numbers.")
+    
+    # Check if n_periods is positive integer
+    if not isinstance(n_periods, int) or n_periods <= 0:
+        raise ValueError("n_periods must be positive integer")
+    
+    rate_per_period = annual_rate / 12 / 100
+
+    # Calculate the present value of contributions (annuity formula)
+    pv_contributions = contribution * ((1 - (1 + rate_per_period) ** -n_periods) / rate_per_period)
+
+    # Total present value
+    total_pv = pv_contributions + principal
+
+    # Total contributions over the periods
+    total_contributions = contribution * n_periods
+
+    # Interest saved (difference between total contributions and present value)
+    interest_saved = total_contributions - total_pv
+
+    data = {
+        "Present Value": [total_pv],
+        "Principal": [principal],
+        "Contributions": [total_contributions],
+        "Interest Saved": [interest_saved],
+    }
+
+    return pd.DataFrame(data) 
