@@ -9,7 +9,7 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
     annual_rate : float
         Annual interest rate (as a percentage, e.g., 5 for 5%).
     n_periods : int
-        Total number of periods (in months).
+        Total number of periods (in months), a non-zero positive integer.
     contribution : float, optional
         Payment made per period (monthly contributions). Defaults to 0 if not provided.
 
