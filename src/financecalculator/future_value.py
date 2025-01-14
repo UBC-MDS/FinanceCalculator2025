@@ -8,13 +8,14 @@ def future_value(principal, annual_rate, n_periods, contribution=0):
     Parameters
     ----------
     principal : float
-        The initial investment.
+        The initial investment (positive value) or loan (negative value).
     annual_rate : float
         Annual interest rate (as a percentage, e.g., 5 for 5%).
     n_periods : int
         Total number of periods (in months).
     contribution : float, optional
         Payment made per period (monthly contributions). Defaults to 0 if not provided.
+        A negative contribution indicates withdrawals.
 
     Returns
     -------
@@ -37,16 +38,9 @@ def future_value(principal, annual_rate, n_periods, contribution=0):
     if not isinstance(contribution, (int, float)):
         raise TypeError("Contribution must be a number (int or float).")
     
-    # Check all values are positive, and annual_rate is between 0 and 100
-        # Range checks
-    if principal < 0:
-        raise ValueError("Principal cannot be negative.")
-    if annual_rate < 0:
-        raise ValueError("Annual interest rate cannot be negative.")
-    if n_periods <= 0:
+    # Check n_periods is positive, otherwise throw an error
+    if n_periods < 0:
         raise ValueError("Number of periods must be a positive integer.")
-    if contribution < 0:
-        raise ValueError("Contribution cannot be negative.")
     
     # Throw an error if n_periods is 0
     if n_periods == 0:
@@ -60,6 +54,10 @@ def future_value(principal, annual_rate, n_periods, contribution=0):
     if 0 < annual_rate <1:
         warnings.warn("Warning: The annual interest rate entered seems quite low. "
                        "Did you mean to enter it as a percentage (e.g., 5 for 5%)?", UserWarning)
+
+    # If interest rate is negative, issue a warning. Negative interest rates are possible but very rare    
+    if annual_rate < 0:
+        warnings.warn("Warning: You entered a negative interest rate. This may lead to a decrease in your investment's value.", UserWarning)
         
      # Check if the user entered an unusually low value for n_periods (anything less than 6 months), and remind them it's in years
     if n_periods <= 5:
@@ -76,16 +74,18 @@ def future_value(principal, annual_rate, n_periods, contribution=0):
         contribution_value = contribution * (((1 + int_rate) ** n_periods - 1) / int_rate)
 
     # Calculate future value
-    future_value = round((principal * (1 + int_rate) ** n_periods + contribution_value),2)
+    future_value = (principal * (1 + int_rate) ** n_periods + contribution_value)
 
     # Calculate total contributions
     total_contributions = contribution * n_periods
 
     # Calculate total interest earned
-    if principal == 0:
-        interest_earned = round((future_value - total_contributions), 2)
-    else:
-        interest_earned = round((future_value - (principal + total_contributions)), 2)
+    interest_earned = (future_value - (principal + total_contributions))
+
+    # Round all the results to two decimal places only at the very end
+    future_value = round(future_value, 2)
+    total_contributions = round(total_contributions, 2)
+    interest_earned = round(interest_earned, 2)
 
     #Create return dataframe
     data = {
@@ -97,3 +97,5 @@ def future_value(principal, annual_rate, n_periods, contribution=0):
 
     # Return dataframe as function output
     return pd.DataFrame(data)
+
+print(future_value(1000, 5, 12, 0))
