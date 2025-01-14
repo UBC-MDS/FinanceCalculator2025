@@ -13,7 +13,7 @@ def calculate_contribution(principal, future_value, annual_rate, n_periods):
     annual_rate : float
         Annual interest rate (as a percentage, e.g., 5 for 5%).
     n_periods : int
-        Total number of periods (e.g., months or years).
+        Total number of periods (e.g., months or years). Must be a positive integer.
 
     Returns
     -------
@@ -21,7 +21,22 @@ def calculate_contribution(principal, future_value, annual_rate, n_periods):
         The payment amount per period required to reach the specified future value 
         or pay off the loan. A positive value represents an inflow (e.g., making deposits), 
         while a negative value represents an outflow (e.g., withdrawals or loan repayments).
+
+    Raises
+    ------
+    ValueError
+        If any input is invalid, such as non-numeric types or invalid ranges.
     """
+    # Input validation
+    if not isinstance(principal, (int, float)):
+        raise ValueError("Principal must be a number.")
+    if not isinstance(future_value, (int, float)):
+        raise ValueError("Future value must be a number.")
+    if not isinstance(annual_rate, (int, float)) or annual_rate < -100:
+        raise ValueError("Annual rate must be a number and greater than or equal to -100%.")
+    if not isinstance(n_periods, int) or n_periods <= 0:
+        raise ValueError("Number of periods must be a positive integer.")
+
     # Convert annual rate to decimal and adjust for monthly periods
     rate_per_period = (annual_rate / 100) / 12  # Assume monthly periods
 
