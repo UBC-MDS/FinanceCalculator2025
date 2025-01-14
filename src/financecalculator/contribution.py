@@ -1,13 +1,15 @@
 def calculate_contribution(principal, future_value, annual_rate, n_periods):
     """
-    Calculates the contribution required to pay off a loan or reach a specified future value.
+    Calculates the contribution required per period to achieve a specified future value 
+    or pay off a loan, considering the possibility of depositing or withdrawing funds.
 
     Parameters
     ----------
     principal : float
-        The initial loan amount or investment (present value).
+        The initial loan amount or investment (present value). For loans, this should be a 
+        negative value (e.g., -1000 for a loan of 1000).
     future_value : float
-        The target future value (amount remaining after n_periods, usually 0 for loans).
+        The target future value (amount remaining after n_periods). For loans, this is usually 0.
     annual_rate : float
         Annual interest rate (as a percentage, e.g., 5 for 5%).
     n_periods : int
@@ -17,5 +19,22 @@ def calculate_contribution(principal, future_value, annual_rate, n_periods):
     -------
     float
         The payment amount per period required to reach the specified future value 
-        or pay off the loan.
+        or pay off the loan. A positive value represents an inflow (e.g., making deposits), 
+        while a negative value represents an outflow (e.g., withdrawals or loan repayments).
     """
+    # Convert annual rate to decimal and adjust for monthly periods
+    rate_per_period = (annual_rate / 100) / 12  # Assume monthly periods
+
+    # Handle zero interest rate case
+    if rate_per_period == 0:
+        contribution = (future_value - principal) / n_periods
+    else:
+        # Calculate contribution using the financial formula
+        contribution = (principal * rate_per_period * (1 + rate_per_period) ** n_periods +
+                        future_value * rate_per_period) / ((1 + rate_per_period) ** n_periods - 1)
+    
+    # Adjust sign based on the relationship between principal and future value
+    if principal > future_value:
+        return -abs(contribution)  # Withdrawal or repayment (negative contribution)
+    else:
+        return abs(contribution)  # Deposit or investment (positive contribution)
