@@ -39,8 +39,12 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
     
     rate_per_period = annual_rate / 12 / 100
 
-    # Calculate the present value of contributions (annuity formula)
-    pv_contributions = contribution * ((1 - (1 + rate_per_period) ** -n_periods) / rate_per_period)
+    if rate_per_period == 0:
+        # Special case when interest rate is 0
+        pv_contributions = contribution * n_periods
+    else:
+        # Calculate the present value of contributions (annuity formula)
+        pv_contributions = contribution * ((1 - (1 + rate_per_period) ** -n_periods) / rate_per_period)
 
     # Total present value
     total_pv = pv_contributions + principal
