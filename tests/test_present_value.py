@@ -1,6 +1,6 @@
-from financecalculator.present_value import present_value
 import pytest
 import pandas as pd
+from financecalculator.present_value import present_value
 
 def test_inputs_are_numbers():
     # Test that all inputs are numbers
@@ -27,7 +27,7 @@ def test_inputs_are_numbers():
         [10000, 5, 10, True],     # contribution is a boolean
     ]
     for inputs in invalid_inputs:
-        with pytest.raises(ValueError, match="All input must be numbers"):
+        with pytest.raises(ValueError, match="Please enter numbers"):
             present_value(*inputs)
 
 def test_n_periods_positive_integer():
@@ -44,7 +44,7 @@ def test_overflow_and_underflow():
     large_principal = 1e20
     large_contribution = 1e20
     large_annual_rate = 1e5
-    large_n_periods = 1e5
+    large_n_periods = int(1e5)
     result = present_value(large_principal, large_annual_rate, large_n_periods, large_contribution)
     assert result["Present Value"].iloc[0] < float('inf'), "Overflow error in present value calculation"
 

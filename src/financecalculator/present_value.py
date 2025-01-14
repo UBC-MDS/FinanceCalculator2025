@@ -29,8 +29,8 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
     """
     import pandas as pd
 
-    # Check if all inputs are numbers.
-    if not all(isinstance(arg, (int, float)) for arg in [principal, annual_rate, n_periods, contribution]):
+    # Check if all inputs are numbers
+    if not all(isinstance(arg, (int, float)) and not isinstance(arg, bool) for arg in [principal, annual_rate, n_periods, contribution]):
         raise ValueError("Please enter numbers.")
     
     # Check if n_periods is positive integer
