@@ -1,5 +1,6 @@
 import sys; sys.path.append('.')
 import pytest
+import warnings
 from financecalculator.n_periods import n_periods
 
 def test_n_periods_positive_values():
@@ -27,3 +28,25 @@ def test_n_periods_zero_interest_and_zero_contribution():
     # situation with zero annual rate and no contribution
     with pytest.raises(ValueError):
         n_periods(1000, 0, 2000, contribution=0)
+
+def test_n_periods_type_error():
+    with pytest.raises(TypeError):
+        n_periods("1000", 5, 2000)
+
+def test_n_periods_low_interest_warning():
+    with warnings.catch_warnings(record=True) as w:
+        n_periods(1000, 0.5, 2000)
+        assert len(w) == 1
+        assert issubclass(w[-1].category, UserWarning)
+
+def test_n_periods_low_periods_warning():
+    with warnings.catch_warnings(record=True) as w:
+        n_periods(1000, 5, 1500, contribution=100)
+        assert len(w) == 1
+        assert issubclass(w[-1].category, UserWarning)
+
+def test_n_periods_negative_interest_warning():
+    with warnings.catch_warnings(record=True) as w:
+        n_periods(1000, -5, 2000)
+        assert len(w) >= 1
+        assert issubclass(w[-1].category, UserWarning)
