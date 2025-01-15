@@ -24,13 +24,13 @@ def test_future_value_zero_contribution():
 def test_future_value_negative_contribution():
     result = future_value(1000, 5, 12, -100)
     assert isinstance(result, pd.DataFrame)
-    assert result['Future Value'][0] == pytest.approx(-177.34, rel=1e-2)
+    assert result['Future Value'][0] == pytest.approx(-176.7, rel=1e-2)
     assert result['Principal'][0] == 1000
     assert result['Contributions'][0] == -1200
-    assert result['Interest Earned'][0] == pytest.approx(22.66, rel=1e-2)
+    assert result['Interest Earned'][0] == pytest.approx(23.26, rel=1e-2)
 
 # Test negative principal: returns values as expected
-def test_future_value_negative_contribution():
+def test_future_value_negative_principal():
     result = future_value(-1000, 5, 12, 50)  
     assert isinstance(result, pd.DataFrame)
     assert result['Future Value'][0] == pytest.approx(-437.22, rel=1e-2)  

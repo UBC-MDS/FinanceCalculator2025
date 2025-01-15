@@ -97,5 +97,3 @@ def future_value(principal, annual_rate, n_periods, contribution=0):
 
     # Return dataframe as function output
     return pd.DataFrame(data)
-
-print(future_value(1000, 5, 12, 0))
