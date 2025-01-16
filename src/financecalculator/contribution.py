@@ -1,3 +1,5 @@
+import warnings
+
 def calculate_contribution(principal, future_value, annual_rate, n_periods):
     """
     Calculates the contribution required per period to achieve a specified future value 
@@ -26,6 +28,11 @@ def calculate_contribution(principal, future_value, annual_rate, n_periods):
     ------
     ValueError
         If any input is invalid, such as non-numeric types or invalid ranges.
+
+    Warnings
+    --------
+    UserWarning
+        Warnings for potentially unusual inputs.
     """
     # Input validation
     if not isinstance(principal, (int, float)):
@@ -36,6 +43,14 @@ def calculate_contribution(principal, future_value, annual_rate, n_periods):
         raise ValueError("Annual rate must be a number and greater than or equal to -100%.")
     if not isinstance(n_periods, int) or n_periods <= 0:
         raise ValueError("Number of periods must be a positive integer.")
+    
+    # Warnings for unusual inputs
+    if 0 < annual_rate < 1:
+        warnings.warn("Annual interest rate is unusually low. Did you mean to input a percentage (e.g., 5 for 5%)?", UserWarning)
+    if n_periods <= 5:
+        warnings.warn("Number of periods is unusually low. Did you intend to input months instead of years?", UserWarning)
+    if annual_rate <= 0:
+        warnings.warn("Annual interest rate is zero or negative, which is uncommon.", UserWarning)
 
     # Convert annual rate to decimal and adjust for monthly periods
     rate_per_period = (annual_rate / 100) / 12  # Assume monthly periods
