@@ -2,7 +2,7 @@ import pytest
 import pandas as pd
 from financecalculator.present_value import present_value
 
-# test error
+# Test error
 
 def test_inputs_are_numbers():
     # Test that all inputs are numbers
@@ -29,7 +29,7 @@ def test_inputs_are_numbers():
         [10000, 5, 10, True],     # contribution is a boolean
     ]
     for inputs in invalid_inputs:
-        with pytest.raises(ValueError, match="Please enter numbers"):
+        with pytest.raises(TypeError, match="Please enter numbers"):
             present_value(*inputs)
 
 def test_n_periods_positive_integer():
@@ -59,7 +59,7 @@ def test_return_type():
     result = present_value(10000, 5, 10, 200)
     assert isinstance(result, pd.DataFrame), "Return type is not a DataFrame"
 
-# test edges
+# Test edges
 
 def test_zero_interest_rate():
     principal = 10000
@@ -98,4 +98,19 @@ def test_one_period():
     expected_present_value = principal + contribution / (1 + (annual_rate / 12 / 100))  # Discounted single contribution
     assert result["Present Value"].iloc[0] == pytest.approx(expected_present_value, rel=1e-9)
 
+# Warnings
 
+# Test if the warning appears for annual_rate <= 0
+def test_annual_rate_below_zero():
+    with pytest.warns(UserWarning, match="Warning: You entered an annual rate <= 0. It's a rare situation of a loss in value or no interest in loan."):
+        present_value(1000, -3, 12)
+
+# Test if the warning appears for annual rate between 0 and 1
+def test_annual_rate_between_0_and_1():
+    with pytest.warns(UserWarning, match="Warning: Annual rate is percentage. If you want to enter 0.05 for 5%, please enter 5."):
+        present_value(1000, 0.9, 12)
+
+ # Test if warning appears for n_periods < 6 months   
+def test_low_n_periods():
+    with pytest.warns(UserWarning, match="Warning: n period is by month. If you want to enter 1 year, please enter 12."):
+        present_value(1000, 5, 3)

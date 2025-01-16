@@ -1,3 +1,6 @@
+import pandas as pd
+import warnings
+
 def present_value(principal, annual_rate, n_periods, contribution=0):
     """
     Calculates the present value of an investment or loan, accounting for optional contributions.
@@ -27,16 +30,27 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
     --------
     >>> present_value(principal=1000, annual_rate=5, n_periods=120, contribution=100)
     """
-    import pandas as pd
 
     # Check if all inputs are numbers
     if not all(isinstance(arg, (int, float)) and not isinstance(arg, bool) for arg in [principal, annual_rate, n_periods, contribution]):
-        raise ValueError("Please enter numbers.")
+        raise TypeError("Please enter numbers.")
     
     # Check if n_periods is positive integer
     if not isinstance(n_periods, int) or n_periods <= 0:
         raise ValueError("n_periods must be positive integer")
     
+    # If annual rate provided <= 0, issue a warning as it's an unusual situation.
+    if annual_rate <= 0:
+        warnings.warn("Warning: You entered an annual rate <= 0. It's a rare situation of a loss in value or no interest in loan.", UserWarning)
+
+    # If annual rate is between 0 and 1, issue a warning as user may mistaken to input the rate as a decimal rather than percentage.
+    if 0 < annual_rate <1:
+        warnings.warn("Warning: Annual rate is percentage. If you want to enter 0.05 for 5%, please enter 5.", UserWarning)
+
+    # If n_periods <=5, issue a warning as user may mistaken to input the years rather than months.
+    if n_periods <= 5:
+        warnings.warn("Warning: n period is by month. If you want to enter 1 year, please enter 12.", UserWarning)
+
     rate_per_period = annual_rate / 12 / 100
 
     if rate_per_period == 0:
