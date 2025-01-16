@@ -40,3 +40,19 @@ def test_calculate_contribution_unusual_warnings():
 
         calculate_contribution(principal=1000, future_value=1000, annual_rate=5, n_periods=3)
         assert any("Number of periods is unusually low" in str(warning.message) for warning in w)
+
+def test_calculate_contribution_edge_cases():
+    """
+    Test calculate_contribution for edge cases.
+    """
+    # Test 1: Single period
+    result = calculate_contribution(principal=0, future_value=1000, annual_rate=0, n_periods=1)
+    assert result == 1000.00
+
+    # Test 2: High future value and zero principal
+    result = calculate_contribution(principal=0, future_value=1000000, annual_rate=5, n_periods=120)
+    assert round(result, 2) == 6439.88
+
+    # Test 3: Large principal with zero future value
+    result = calculate_contribution(principal=1000000, future_value=0, annual_rate=3, n_periods=240)
+    assert round(result, 2) == -5545.98
