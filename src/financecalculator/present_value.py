@@ -45,11 +45,11 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
 
     # If annual rate is between 0 and 1, issue a warning as user may mistaken to input the rate as a decimal rather than percentage.
     if 0 < annual_rate <1:
-        warnings.warn("Warning: Annual rate is percentage. If you want to enter 0.05 for 5%, please enter 5.", UserWarning)
+        warnings.warn("Warning: Annual rate is percentage. E.g. if you want to enter 0.05 for 5%, please enter 5.", UserWarning)
 
     # If n_periods <=5, issue a warning as user may mistaken to input the years rather than months.
     if n_periods <= 5:
-        warnings.warn("Warning: n period is by month. If you want to enter 1 year, please enter 12.", UserWarning)
+        warnings.warn("Warning: n period is by month. E.g. if you want to enter 1 year, please enter 12.", UserWarning)
 
     rate_per_period = annual_rate / 12 / 100
 

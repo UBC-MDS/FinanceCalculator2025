@@ -39,12 +39,8 @@ def future_value(principal, annual_rate, n_periods, contribution=0):
         raise TypeError("Contribution must be a number (int or float).")
     
     # Check n_periods is positive, otherwise throw an error
-    if n_periods < 0:
-        raise ValueError("Number of periods must be a positive integer.")
-    
-    # Throw an error if n_periods is 0
-    if n_periods == 0:
-        raise ValueError("The number of periods must be greater than zero.")
+    if n_periods <= 0:
+        raise ValueError("Number of periods must be greater than zero.")
     
     # If annual rate provided is 0, issue a warning that future value will be equal to principal plus contributions
     if annual_rate == 0:
