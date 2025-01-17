@@ -12,7 +12,7 @@ def test_calculate_contribution_basic_cases():
 
     # Test 2: Zero interest rate, future value < principal
     result = calculate_contribution(principal=10000, future_value=0, annual_rate=0, n_periods=10)
-    assert round(result, 2) == -1000.00  # Repayment with no interest
+    assert round(result, 2) == -1000.00  # Repayment with no interest         
 
     # Test 3: Zero interest rate, future value > principal
     result = calculate_contribution(principal=5000, future_value=10000, annual_rate=0, n_periods=5)
@@ -39,7 +39,7 @@ def test_calculate_contribution_unusual_warnings():
         assert any("Annual interest rate is zero or negative" in str(warning.message) for warning in w)
 
         calculate_contribution(principal=1000, future_value=1000, annual_rate=5, n_periods=3)
-        assert any("Number of periods is unusually low" in str(warning.message) for warning in w)
+        assert any("Number of periods is unusually low" in str(warning.message) for warning in w)        
 
 def test_calculate_contribution_edge_cases():
     """
@@ -47,7 +47,7 @@ def test_calculate_contribution_edge_cases():
     """
     # Test 1: Single period
     result = calculate_contribution(principal=0, future_value=1000, annual_rate=0, n_periods=1)
-    assert result == 1000.00
+    assert result == 1000.00 
 
     # Test 2: High future value and zero principal
     result = calculate_contribution(principal=0, future_value=1000000, annual_rate=5, n_periods=120)
@@ -56,3 +56,24 @@ def test_calculate_contribution_edge_cases():
     # Test 3: Large principal with zero future value
     result = calculate_contribution(principal=1000000, future_value=0, annual_rate=3, n_periods=240)
     assert round(result, 2) == -5545.98
+
+def test_input_validation():
+    """
+    Test calculate_contribution for incorrect input types.
+    """
+
+    # Test 1: Invalid principal (non-numeric)
+    with pytest.raises(ValueError, match="Principal must be a number."):
+        calculate_contribution(principal="abc", future_value=1000, annual_rate=5, n_periods=12)
+
+    # Test 2: Invalid future_value (non-numeric)
+    with pytest.raises(ValueError, match="Future value must be a number."):
+        calculate_contribution(principal=1000, future_value="abc", annual_rate=5, n_periods=12)
+
+    # Test 3: Invalid annual_rate (non-numeric)
+    with pytest.raises(ValueError, match="Annual rate must be a number and greater than or equal to -100%."):
+        calculate_contribution(principal=1000, future_value=1000, annual_rate="five", n_periods=12)
+
+    # Test 5: Invalid n_periods (non-integer)
+    with pytest.raises(ValueError, match="Number of periods must be a positive integer."):
+        calculate_contribution(principal=1000, future_value=1000, annual_rate=5, n_periods="abc")

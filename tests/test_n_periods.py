@@ -9,11 +9,14 @@ def test_n_periods_positive_values():
 
 def test_n_periods_negative_values():
     # situation with all negative
-    assert n_periods(-1000, -5, -2000, contribution=-100) == 11
+    #assert n_periods(-1000, -5, -2000, contribution=-100) == 11
+    with pytest.warns(UserWarning, match="The annual_rate is zero or negative. This is unusual behavior."):
+        assert n_periods(-1000, -5, -2000, contribution=-100) == 11
 
 def test_n_periods_zero_interest_rate():
     # situation with zero annual rate
-    assert n_periods(1000, 0, 2000, contribution=100) == 10
+    with pytest.warns(UserWarning, match="The annual_rate is zero or negative. This is unusual behavior."):
+        assert n_periods(1000, 0, 2000, contribution=100) == 10
 
 def test_n_periods_no_contribution():
     # situation with no contribution
@@ -26,8 +29,9 @@ def test_n_periods_zero_principal_and_contribution():
 
 def test_n_periods_zero_interest_and_zero_contribution():
     # situation with zero annual rate and no contribution
-    with pytest.raises(ValueError):
-        n_periods(1000, 0, 2000, contribution=0)
+    with pytest.warns(UserWarning, match="The annual_rate is zero or negative. This is unusual behavior."):
+        with pytest.raises(ValueError):
+            n_periods(1000, 0, 2000, contribution=0)
 
 def test_n_periods_type_error():
     with pytest.raises(TypeError):
