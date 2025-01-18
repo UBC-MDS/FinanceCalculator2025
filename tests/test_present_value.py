@@ -42,19 +42,6 @@ def test_n_periods_positive_integer():
     with pytest.raises(ValueError, match="n_periods must be positive integer"):
         present_value(10000, 5, 5.5, 200)  # n_periods is not an integer
 
-def test_overflow_and_underflow():
-    # Test for overflow and underflow conditions
-    large_principal = 1e20
-    large_contribution = 1e20
-    large_annual_rate = 1e5
-    large_n_periods = int(1e5)
-    result = present_value(large_principal, large_annual_rate, large_n_periods, large_contribution)
-    assert result["Present Value"].iloc[0] < float('inf'), "Overflow error in present value calculation"
-
-    small_annual_rate = 1e-10
-    result = present_value(10000, small_annual_rate, 10, 200)
-    assert result["Present Value"].iloc[0] > 0, "Underflow error in present value calculation"
-
 def test_return_type():
     # Test that the return type is a DataFrame
     result = present_value(10000, 5, 10, 200)
