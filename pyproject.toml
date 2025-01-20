@@ -13,6 +13,7 @@ pandas = "^2.2.3"
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.4"
 pytest-cov = "^6.0.0"
+jupyter = "^1.1.1"
 
 [tool.semantic_release]
 version_toml = [
