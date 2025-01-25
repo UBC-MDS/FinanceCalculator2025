@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 
-![](img/finance-calculator-853x1024.png){width="200"}
+![](img/finance-calculator-200px.png)
 
 ## Project Summary
 
