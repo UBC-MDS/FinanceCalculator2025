@@ -51,7 +51,7 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
     if n_periods <= 5:
         warnings.warn("Warning: n period is by month. E.g. if you want to enter 1 year, please enter 12.", UserWarning)
 
-    rate_per_period = annual_rate / 12 / 100
+    rate_per_period = annual_rate / (12 * 100) 
 
     if rate_per_period == 0:
         # Special case when interest rate is 0
@@ -67,7 +67,7 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
     total_contributions = contribution * n_periods
 
     # Interest saved (difference between total contributions and present value)
-    interest_saved = total_contributions - total_pv
+    interest_saved = total_pv - total_contributions
 
     data = {
         "Present Value": [total_pv],
