@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 
-![](img/finance-calculator-200px.png)
+<img src="https://github.com/UBC-MDS/FinanceCalculator/blob/main/img/finance-calculator-200px.png">
 
 ## Project Summary
 
@@ -13,9 +13,9 @@ This package serves as a convenient tool for managing personal finances, offerin
 
 ## Contributors
 
--   Chaoyu Ou [Shell-human](https://github.com/Shell-human)\
+-   Chaoyu Ou [Shell-human](https://github.com/Shell-human)
 -   Meagan Gardner [meagangardner](https://github.com/meagangardner)
--   Ziming Fang [ethanfang08](https://github.com/ethanfang08)\
+-   Ziming Fang [ethanfang08](https://github.com/ethanfang08)
 -   Zoe Ren [sgdkd](https://github.com/sgdkd)
 
 ------------------------------------------------------------------------
