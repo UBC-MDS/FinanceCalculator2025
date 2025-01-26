@@ -1,4 +1,4 @@
-# **Finance Calculator**
+# **FinanceCalculator**
 
 ------------------------------------------------------------------------
 [![Documentation Status](https://readthedocs.org/projects/financecalculator/badge/?version=latest)](https://financecalculator.readthedocs.io/en/latest/?badge=latest)
