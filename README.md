@@ -7,7 +7,7 @@
 
 ## Project Summary
 
-`**FinanceCalculator**` is a Python package for calculating financial metrics specifically designed for loans or investment scenarios.\
+**`FinanceCalculator`** is a Python package for calculating financial metrics specifically designed for loans or investment scenarios.\
 This package serves as a convenient tool for managing personal finances, offering functionalities such as Contribution, Future Value, Present Value, and Number of Periods Calculations.
 
 ------------------------------------------------------------------------
@@ -35,37 +35,10 @@ This package offers four key functions:
 
 ### **Functions:**
 
-1.  **Calculate Contribution**
-
-    ``` python
-    calculate_contribution(principal, future_value, annual_rate, n_periods)
-    ```
-
-    Calculates the periodic payment (contribution) required to pay off a loan or reach a specified future value over a given number of periods.
-
-2.  **Future Value**
-
-    ``` python
-    future_value(principal, annual_rate, n_periods, contribution=0)
-    ```
-
-    Calculates the future value of an investment or loan, factoring in optional periodic contributions.
-
-3.  **Present Value**
-
-    ``` python
-    present_value(principal, annual_rate, n_periods, contribution=0)
-    ```
-
-    Calculates the present value of an investment or loan, considering optional monthly contributions.
-
-4.  **N Periods**
-
-    ``` python
-    n_periods(principal, annual_rate, future_value, contribution=0)
-    ```
-
-    Calculates the number of periods (in months) required to reach a specified future value, given an initial principal, an annual interest rate, and optional monthly contributions.
+1.  **`calculate_contribution`:** Calculates the periodic payment (contribution) required to pay off a loan or reach a specified future value over a given number of periods.
+2.  **`future_value`:** Calculates the future value of an investment or loan, factoring in optional periodic contributions.
+3.  **`present_value`:** Calculates the present value of an investment or loan, considering optional monthly contributions.
+4.  **`n_periods`:** Calculates the number of periods (in months) required to reach a specified future value, given an initial principal, an annual interest rate, and optional monthly contributions.
 
 ------------------------------------------------------------------------
 
