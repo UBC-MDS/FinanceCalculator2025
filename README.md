@@ -9,7 +9,7 @@
 ## Project Summary
 
 **`FinanceCalculator`** is a Python package for calculating financial metrics specifically designed for loans or investment scenarios.\
-This package serves as a convenient tool for managing personal finances, offering functionalities such as Contribution, Future Value, Present Value, and Number of Periods Calculations
+This package serves as a convenient tool for managing personal finances, offering functionalities such as Contribution, Future Value, Present Value, and Number of Periods Calculations.
 
 ------------------------------------------------------------------------
 
