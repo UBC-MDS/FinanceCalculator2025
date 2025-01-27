@@ -2,6 +2,7 @@
 
 ------------------------------------------------------------------------
 [![Documentation Status](https://readthedocs.org/projects/financecalculator/badge/?version=latest)](https://financecalculator.readthedocs.io/en/latest/?badge=latest)
+[![codecov](https://codecov.io/gh/UBC-MDS/FinanceCalculator/graph/badge.svg?token=n9iRr2joRS)](https://codecov.io/gh/UBC-MDS/FinanceCalculator)
 
 <img src="https://github.com/UBC-MDS/FinanceCalculator/blob/main/img/finance-calculator-200px.png?raw=true">
 
