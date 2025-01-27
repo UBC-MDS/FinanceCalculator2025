@@ -1,7 +1,4 @@
-# Changelog
+# CHANGELOG
 
-<!--next-version-placeholder-->
 
-## v0.1.0 (06/01/2025)
-
-- First release of `financecalculator`!
+## v0.0.0 (2025-01-27)
