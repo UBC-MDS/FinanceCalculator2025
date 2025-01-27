@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.1 (2025-01-27)
+
+### Bug Fixes
+
+- Added middle initial of author
+  ([`3ea1f5a`](https://github.com/UBC-MDS/FinanceCalculator/commit/3ea1f5a4de061c704304d051c95282b6403b649f))
+
+
 ## v0.1.0 (2025-01-27)
 
 ### Features
