@@ -1,5 +1,5 @@
 import pytest
-from financecalculator.contribution import calculate_contribution
+from financecalculator2025.contribution import calculate_contribution
 import warnings
 
 def test_calculate_contribution_basic_cases():

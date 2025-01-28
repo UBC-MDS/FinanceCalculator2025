@@ -1,6 +1,6 @@
 import pandas as pd
 import pytest
-from financecalculator.future_value import future_value
+from financecalculator2025.future_value import future_value
 
 # Test the function is working as expected
 def test_future_value_valid_input():

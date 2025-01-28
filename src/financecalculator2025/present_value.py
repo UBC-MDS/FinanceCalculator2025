@@ -51,7 +51,7 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
     if n_periods <= 5:
         warnings.warn("Warning: n period is by month. E.g. if you want to enter 1 year, please enter 12.", UserWarning)
 
-    rate_per_period = annual_rate / (12 * 100) 
+    rate_per_period = annual_rate / (12 * 100)
 
     if rate_per_period == 0:
         # Special case when interest rate is 0
@@ -59,7 +59,7 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
     else:
         # Calculate the present value of contributions (annuity formula)
         pv_contributions = contribution * ((1 - (1 + rate_per_period) ** -n_periods) / rate_per_period)
-
+ 
     # Total present value
     total_pv = pv_contributions + principal
 

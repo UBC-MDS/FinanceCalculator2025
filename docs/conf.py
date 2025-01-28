@@ -6,7 +6,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u"financecalculator"
+project = u"financecalculator2025"
 copyright = u"2025, Meagan Gardner"
 author = u"Meagan Gardner"
 

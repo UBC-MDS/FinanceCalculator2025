@@ -1,4 +1,4 @@
-# Contributing to FinanceCalculator
+# Contributing to FinanceCalculator2025
 
 Contributions are welcome, and they are greatly appreciated! Every little bit
 helps, and credit will always be given.
@@ -40,10 +40,10 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up `financecalculator` for local development.
+Ready to contribute? Here's how to set up `financecalculator2025` for local development.
 
-1. Download a copy of `financecalculator` locally.
-2. Install `financecalculator` using `poetry`:
+1. Download a copy of `financecalculator2025` locally.
+2. Install `financecalculator2025` using `poetry`:
 
     ```console
     $ poetry install
@@ -69,6 +69,6 @@ Before you submit a pull request, check that it meets these guidelines:
 
 ## Code of Conduct
 
-Please note that the `financecalculator` project is released with a
+Please note that the `financecalculator2025` project is released with a
 [Contributor Code of
 Conduct](CODE_OF_CONDUCT.md). By contributing to this project you agree to abide by its terms.
