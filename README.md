@@ -1,14 +1,14 @@
-# **FinanceCalculator**
+# **FinanceCalculator2025**
 
 ------------------------------------------------------------------------
-[![Documentation Status](https://readthedocs.org/projects/financecalculator/badge/?version=latest)](https://financecalculator.readthedocs.io/en/latest/?badge=latest)
-[![codecov](https://codecov.io/gh/UBC-MDS/FinanceCalculator/graph/badge.svg?token=n9iRr2joRS)](https://codecov.io/gh/UBC-MDS/FinanceCalculator)
+[![Documentation Status](https://readthedocs.org/projects/financecalculator2025/badge/?version=latest)](https://financecalculator2025.readthedocs.io/en/latest/?badge=latest)
+[![codecov](https://codecov.io/gh/UBC-MDS/FinanceCalculator2025/graph/badge.svg?token=n9iRr2joRS)](https://codecov.io/gh/UBC-MDS/FinanceCalculator2025)
 
-<img src="https://github.com/UBC-MDS/FinanceCalculator/blob/main/img/finance-calculator-200px.png?raw=true">
+<img src="https://github.com/UBC-MDS/FinanceCalculator2025/blob/main/img/finance-calculator-200px.png?raw=true">
 
 ## Project Summary
 
-**`FinanceCalculator`** is a Python package for calculating financial metrics specifically designed for loans or investment scenarios.\
+**`FinanceCalculator2025`** is a Python package for calculating financial metrics specifically designed for loans or investment scenarios.\
 This package serves as a convenient tool for managing personal finances, offering functionalities such as Contribution, Future Value, Present Value, and Number of Periods Calculations.
 
 ------------------------------------------------------------------------
@@ -25,7 +25,7 @@ This package serves as a convenient tool for managing personal finances, offerin
 ## Installation
 
 ``` bash
-$ pip install financecalculator
+$ pip install financecalculator2025
 ```
 
 ------------------------------------------------------------------------
@@ -64,7 +64,7 @@ This package offers four key functions:
 
 ## Python Ecosystem
 
-The `FinanceCalculator` package situates itself within the Python ecosystem as a learning-oriented initiative aimed at developing practical skills in financial computation and programming. While the Python ecosystem already includes robust packages and applications like [Loan Calculator](https://github.com/yanomateus/loan-calculator) and [Financial Calculator App](https://github.com/dilumdesilva/Financial-Calculator-App), this project differentiates itself by offering an accessible, user-friendly tools that simplifies core financial concepts. With intuitive function names like calculate_contribution, future_value, and present_value, it allows users — especially beginners and students — to quickly grasp the essentials without needing to understand complex financial formulas. This project also serves as a hands-on exercise for those eager to deepen their understanding of both finance and Python programming, making it a valuable resource for anyone looking to deepen their understanding of financial concepts and Python development.
+The `FinanceCalculator2025` package situates itself within the Python ecosystem as a learning-oriented initiative aimed at developing practical skills in financial computation and programming. While the Python ecosystem already includes robust packages and applications like [Loan Calculator](https://github.com/yanomateus/loan-calculator) and [Financial Calculator App](https://github.com/dilumdesilva/Financial-Calculator-App), this project differentiates itself by offering an accessible, user-friendly tools that simplifies core financial concepts. With intuitive function names like calculate_contribution, future_value, and present_value, it allows users — especially beginners and students — to quickly grasp the essentials without needing to understand complex financial formulas. This project also serves as a hands-on exercise for those eager to deepen their understanding of both finance and Python programming, making it a valuable resource for anyone looking to deepen their understanding of financial concepts and Python development.
 
 ------------------------------------------------------------------------
 
@@ -73,8 +73,8 @@ The `FinanceCalculator` package situates itself within the Python ecosystem as a
 
 2. Create a new virtual environment in terminal and activate it:
 ```
-conda create --name financecalculator python=3.11.0
-conda activate financecalculator
+conda create --name financecalculator2025 python=3.11.0
+conda activate financecalculator2025
 ```
 
 3. To install the needed packages via poetry, run the following command. If poetry hasn't been set up yet, please following [this link](https://python-poetry.org/docs/) for installtion.
@@ -84,23 +84,23 @@ poetry install
 4. To test the package and check coverage, run the following command
 ```
 pytest tests/
-pytest tests/ --cov=financecalculator
+pytest tests/ --cov=financecalculator2025
 ```
-5. The set up is done! You can now use the `FinanceCalculator` package! Please click on the function documentation at the top of this README on how to use the package.
+5. The set up is done! You can now use the `FinanceCalculator2025` package! Please click on the function documentation at the top of this README on how to use the package.
 
 
 ## Usage
 
-The `FinanceCalculator` package allows users to perform essential financial calculations conveniently. Below is a quick start example of how to use this package:
+The `FinanceCalculator2025` package allows users to perform essential financial calculations conveniently. Below is a quick start example of how to use this package:
 
 ```
 import pandas as pd
 
-import financecalculator
-from financecalculator.present_value import present_value
-from financecalculator.future_value import future_value
-from financecalculator.contribution import calculate_contribution
-from financecalculator.n_periods import n_periods
+import financecalculator2025
+from financecalculator2025.present_value import present_value
+from financecalculator2025.future_value import future_value
+from financecalculator2025.contribution import calculate_contribution
+from financecalculator2025.n_periods import n_periods
 ```
 
 **Calculate periodic payments for a loan:**
@@ -133,10 +133,10 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 
 ## License
 
-`FinanceCalculator` was created by Meagan Gardner, Zoe Ren, Ziming Fang, and Chaoyu Ou. It is licensed under the terms of the MIT license.
+`FinanceCalculator2025` was created by Meagan Gardner, Zoe Ren, Ziming Fang, and Chaoyu Ou. It is licensed under the terms of the MIT license.
 
 ------------------------------------------------------------------------
 
 ## Credits
 
-`FinanceCalculator` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
+`FinanceCalculator2025` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).

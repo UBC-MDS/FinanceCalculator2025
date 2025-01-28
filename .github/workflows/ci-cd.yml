@@ -24,7 +24,7 @@ jobs:
         run: poetry install
 
       - name: Test with pytest
-        run: poetry run pytest tests/ --cov=financecalculator --cov-report=xml
+        run: poetry run pytest tests/ --cov=financecalculator2025 --cov-report=xml
 
       - name: Use Codecov to track coverage
         uses: codecov/codecov-action@v5
@@ -81,7 +81,7 @@ jobs:
             pip install \
             --index-url https://test.pypi.org/simple/ \
             --extra-index-url https://pypi.org/simple \
-            financecalculator
+            financecalculator2025
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1

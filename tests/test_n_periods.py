@@ -1,7 +1,7 @@
 import sys; sys.path.append('.')
 import pytest
 import warnings
-from financecalculator.n_periods import n_periods
+from financecalculator2025.n_periods import n_periods
 
 def test_n_periods_positive_values():
     # situation with all positive
