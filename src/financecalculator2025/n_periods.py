@@ -38,8 +38,14 @@ def n_periods(principal, annual_rate, future_value, contribution=0):
         If `n_periods` is unusually low (<5), suggesting the user may have entered years instead of months.
     """
     # check types of the inputs
-    if not isinstance(principal, (int, float)) or not isinstance(annual_rate, (int, float)) or not isinstance(future_value, (int, float)) or not isinstance(contribution, (int, float)):
-        raise TypeError("All inputs must be integers or floats.")
+    if not isinstance(principal, (int, float)):  
+        raise TypeError("Parameter 'principal' must be a number (int or float).")  
+    if not isinstance(annual_rate, (int, float)):  
+        raise TypeError("Parameter 'annual_rate' must be a number (int or float).")  
+    if not isinstance(future_value, (int, float)):  
+        raise TypeError("Parameter 'future_value' must be a number (int or float).")  
+    if not isinstance(contribution, (int, float)): 
+        raise TypeError("Parameter 'contribution' must be a number (int or float).")  
         
     if principal == future_value:
         return 0

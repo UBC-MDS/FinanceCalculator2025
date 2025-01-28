@@ -47,8 +47,14 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
     """
 
     # Check if all inputs are numbers
-    if not all(isinstance(arg, (int, float)) and not isinstance(arg, bool) for arg in [principal, annual_rate, n_periods, contribution]):
-        raise TypeError("Please enter numbers.")
+    if not isinstance(principal, (int, float)):  
+        raise TypeError("Parameter 'principal' must be a number (int or float).")  
+    if not isinstance(annual_rate, (int, float)):  
+        raise TypeError("Parameter 'annual_rate' must be a number (int or float).")  
+    if not isinstance(n_periods, int):  
+        raise TypeError("Parameter 'n_periods' must be an integer.")  
+    if not isinstance(contribution, (int, float)):  
+        raise TypeError("Parameter 'contribution' must be a number (int or float).")  
     
     # Check if n_periods is positive integer
     if not isinstance(n_periods, int) or n_periods <= 0:
