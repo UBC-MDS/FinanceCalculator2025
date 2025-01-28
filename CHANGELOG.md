@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.2 (2025-01-28)
+
+### Bug Fixes
+
+- Changed name to financecalculator2025
+  ([`e8a66fe`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/e8a66fe9ead85140d093b284db50fefcb62b0dbb))
+
+
 ## v0.1.1 (2025-01-27)
 
 ### Bug Fixes
