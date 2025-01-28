@@ -25,6 +25,21 @@ def future_value(principal, annual_rate, n_periods, contribution=0):
             - 'Principal': The initial investment.
             - 'Contributions': Total amount contributed over the investment period.
             - 'Interest Earned': The total interest earned from the investment.
+
+    Raises
+    ------
+    TypeError
+        If any of `principal`, `annual_rate`, `n_periods`, or `contribution` is not a float or int.
+    ValueError
+        If `n_periods` is not positive.
+        If `annual_rate` is negative.
+
+    Warnings
+    --------
+    UserWarning
+        If `annual_rate` is 0, the future value will be equal to the principal plus contributions.
+        If `annual_rate` is unusually low (<1), indicating the user may have entered a percentage instead of a decimal.
+        If `n_periods` is unusually low (<6), suggesting the user may have entered years instead of months.
     """
 
     # Check input types are correct

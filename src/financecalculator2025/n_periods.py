@@ -21,6 +21,21 @@ def n_periods(principal, annual_rate, future_value, contribution=0):
     -------
     n_periods : int
         The number of periods (in months) required to reach the future value.
+
+    Raises
+    ------
+    TypeError
+        If any of `principal`, `annual_rate`, `future_value`, or `contribution` is not a float or int.
+    ValueError
+        If both `principal` and `contribution` are 0.
+        If `annual_rate` is negative.
+
+    Warnings
+    --------
+    UserWarning
+        If `annual_rate` is unusually low (<1), indicating the user may have entered a percentage instead of a decimal.
+        If `annual_rate` is 0, the future value cannot be reached without a contribution.
+        If `n_periods` is unusually low (<5), suggesting the user may have entered years instead of months.
     """
     # check types of the inputs
     if not isinstance(principal, (int, float)) or not isinstance(annual_rate, (int, float)) or not isinstance(future_value, (int, float)) or not isinstance(contribution, (int, float)):

@@ -26,6 +26,21 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
             - 'Interest Saved': The amount of interest avoided by paying a lump sum today instead 
                 of spreading payments over time.
 
+    Raises
+    ------
+    TypeError
+        If any of `principal`, `annual_rate`, `n_periods`, or `contribution` is not a float or int.
+    ValueError
+        If `n_periods` is not positive.
+        If `annual_rate` is negative.
+
+    Warnings
+    --------
+    UserWarning
+        If `annual_rate` is 0, the present value will not include any interest effects.
+        If `annual_rate` is unusually low (<1), indicating the user may have entered a percentage instead of a decimal.
+        If `n_periods` is unusually low (<6), suggesting the user may have entered years instead of months.
+    
     Examples
     --------
     >>> present_value(principal=1000, annual_rate=5, n_periods=120, contribution=100)
