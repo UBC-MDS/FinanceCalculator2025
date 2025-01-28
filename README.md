@@ -1,7 +1,7 @@
 # **FinanceCalculator2025**
 
 ------------------------------------------------------------------------
-[![Documentation Status](https://readthedocs.org/projects/financecalculator2025/badge/?version=latest)](https://financecalculator2025.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/financecalculator/badge/?version=latest)](https://financecalculator.readthedocs.io/en/latest/?badge=latest)
 [![codecov](https://codecov.io/gh/UBC-MDS/FinanceCalculator2025/graph/badge.svg?token=n9iRr2joRS)](https://codecov.io/gh/UBC-MDS/FinanceCalculator2025)
 
 <img src="https://github.com/UBC-MDS/FinanceCalculator2025/blob/main/img/finance-calculator-200px.png?raw=true">
