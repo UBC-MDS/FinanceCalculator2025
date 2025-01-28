@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "financecalculator2025"
-version = "0.1.2"
+version = "0.2.0"
 description = "A package for calculating Financial Services specifically for loans or investment scenarios."
 authors = ["Meagan Gardner"]
 license = "MIT"

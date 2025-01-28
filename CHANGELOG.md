@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v0.2.0 (2025-01-28)
+
+### Features
+
+- Updated doc icon link
+  ([`9f990b8`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/9f990b825ef55fac1d5b7b3985dfff457374d3c6))
+
+- Updated icon links
+  ([`22ec394`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/22ec394ed75451ea86119f92cc6245624e1f583f))
+
+
 ## v0.1.2 (2025-01-28)
 
 ### Bug Fixes
