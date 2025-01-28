@@ -1,5 +1,5 @@
 import pandas as pd
-import warnings 
+import warnings  
 
 def future_value(principal, annual_rate, n_periods, contribution=0):
     """
