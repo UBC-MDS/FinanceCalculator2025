@@ -1,6 +1,35 @@
 # CHANGELOG
 
 
+## v0.2.1 (2025-01-30)
+
+### Bug Fixes
+
+- Issue62 fixed, all team members added into pyproject.toml
+  ([`a1feb9e`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/a1feb9ece317e20f8566d78c8e4aa30e7a00b8b0))
+
+- Issue64 fixed, Raises and Warnings sections added to all function docstrings
+  ([`2979eeb`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/2979eebb9eadba2653b45afe32a9081bdb293d1b))
+
+- Issue65 fixed, error messages specified
+  ([`4a22088`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/4a2208801de7d86e3e70406b90c929df6ddfb660))
+
+- Issue66 fixed, tests/test_financecalculator.py deleted
+  ([`1070d49`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/1070d496e039e7e7b01c7eebf1129289631207e8))
+
+- Joseph's comment 1 fixed, examples added to docstrings
+  ([`bda3038`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/bda3038f68526f67cf80d55cd934a3ff63fa1520))
+
+- Joseph's comment 2 fixed, Raises and Warnings already added before
+  ([`43a3cb4`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/43a3cb4d99c0d2b595635a262d9ad1147f2729e0))
+
+- Joseph's comment 3 fixed, test_financecalculator.py already deleted before
+  ([`4d39928`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/4d399284490695a10018efe2070d65dccbc64d8a))
+
+- Some tests failure have been fixed
+  ([`56ef99b`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/56ef99ba7593d240e55a38232432a98e657cc601))
+
+
 ## v0.2.0 (2025-01-28)
 
 ### Features
