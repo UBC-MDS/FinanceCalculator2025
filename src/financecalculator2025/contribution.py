@@ -33,6 +33,10 @@ def calculate_contribution(principal, future_value, annual_rate, n_periods):
     --------
     UserWarning
         Warnings for potentially unusual inputs.
+
+    Examples
+    --------
+    >>> calculate_contribution(principal=0, future_value=10000, annual_rate=5, n_periods=120)
     """
     # Input validation
     if not isinstance(principal, (int, float)):

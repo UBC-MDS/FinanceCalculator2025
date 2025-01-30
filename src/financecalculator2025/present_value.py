@@ -26,14 +26,35 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
             - 'Interest Saved': The amount of interest avoided by paying a lump sum today instead 
                 of spreading payments over time.
 
+    Raises
+    ------
+    TypeError
+        If any of `principal`, `annual_rate`, `n_periods`, or `contribution` is not a float or int.
+    ValueError
+        If `n_periods` is not positive.
+        If `annual_rate` is negative.
+
+    Warnings
+    --------
+    UserWarning
+        If `annual_rate` is 0, the present value will not include any interest effects.
+        If `annual_rate` is unusually low (<1), indicating the user may have entered a percentage instead of a decimal.
+        If `n_periods` is unusually low (<6), suggesting the user may have entered years instead of months.
+    
     Examples
     --------
     >>> present_value(principal=1000, annual_rate=5, n_periods=120, contribution=100)
     """
 
     # Check if all inputs are numbers
-    if not all(isinstance(arg, (int, float)) and not isinstance(arg, bool) for arg in [principal, annual_rate, n_periods, contribution]):
-        raise TypeError("Please enter numbers.")
+    if not isinstance(principal, (int, float)) or isinstance(principal, bool):
+        raise TypeError("Parameter 'principal' must be a number (int or float), not a boolean.")
+    if not isinstance(annual_rate, (int, float)) or isinstance(annual_rate, bool):
+        raise TypeError("Parameter 'annual_rate' must be a number (int or float), not a boolean.")
+    if isinstance(n_periods, bool) or not isinstance(n_periods, int):
+        raise TypeError("Parameter 'n_periods' must be an integer, not a boolean.")
+    if not isinstance(contribution, (int, float)) or isinstance(contribution, bool):
+        raise TypeError("Parameter 'contribution' must be a number (int or float), not a boolean.")
     
     # Check if n_periods is positive integer
     if not isinstance(n_periods, int) or n_periods <= 0:

@@ -2,7 +2,7 @@
 name = "financecalculator2025"
 version = "0.2.0"
 description = "A package for calculating Financial Services specifically for loans or investment scenarios."
-authors = ["Meagan Gardner"]
+authors = ["Meagan Gardner", "Ethan Fang", "Shell Ou", "Zoe Ren"]
 license = "MIT"
 readme = "README.md"
 
