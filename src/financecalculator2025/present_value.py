@@ -47,14 +47,14 @@ def present_value(principal, annual_rate, n_periods, contribution=0):
     """
 
     # Check if all inputs are numbers
-    if not isinstance(principal, (int, float)):  
-        raise TypeError("Parameter 'principal' must be a number (int or float).")  
-    if not isinstance(annual_rate, (int, float)):  
-        raise TypeError("Parameter 'annual_rate' must be a number (int or float).")  
-    if not isinstance(n_periods, int):  
-        raise TypeError("Parameter 'n_periods' must be an integer.")  
-    if not isinstance(contribution, (int, float)):  
-        raise TypeError("Parameter 'contribution' must be a number (int or float).")  
+    if not isinstance(principal, (int, float)) or isinstance(principal, bool):
+        raise TypeError("Parameter 'principal' must be a number (int or float), not a boolean.")
+    if not isinstance(annual_rate, (int, float)) or isinstance(annual_rate, bool):
+        raise TypeError("Parameter 'annual_rate' must be a number (int or float), not a boolean.")
+    if isinstance(n_periods, bool) or not isinstance(n_periods, int):
+        raise TypeError("Parameter 'n_periods' must be an integer, not a boolean.")
+    if not isinstance(contribution, (int, float)) or isinstance(contribution, bool):
+        raise TypeError("Parameter 'contribution' must be a number (int or float), not a boolean.")
     
     # Check if n_periods is positive integer
     if not isinstance(n_periods, int) or n_periods <= 0:
