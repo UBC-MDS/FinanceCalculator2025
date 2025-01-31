@@ -5,6 +5,9 @@
 
 ### Bug Fixes
 
+- Issue54 fixed, added Developer Note to README addressing issues with test suite instructions
+  ([`9aea9ef`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/9aea9efcae98c07ab3d1c826eed41a624b609f66))
+
 - Issue62 fixed, all team members added into pyproject.toml
   ([`a1feb9e`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/a1feb9ece317e20f8566d78c8e4aa30e7a00b8b0))
 
