@@ -7,9 +7,12 @@ def test_n_periods_positive_values():
     # situation with all positive
     assert n_periods(1000, 5, 2000, contribution=100) == 9
 
+def test_principal_equal_to_future_value():
+    # situation with principal = future_value, should return 0
+    assert n_periods(1000, 5, 1000, contribution=100) == 0
+
 def test_n_periods_negative_values():
     # situation with all negative
-    #assert n_periods(-1000, -5, -2000, contribution=-100) == 11
     with pytest.warns(UserWarning, match="The annual_rate is zero or negative. This is unusual behavior."):
         assert n_periods(-1000, -5, -2000, contribution=-100) == 11
 
@@ -37,6 +40,21 @@ def test_n_periods_zero_interest_and_zero_contribution():
 def test_n_periods_type_error():
     with pytest.raises(TypeError):
         n_periods("1000", 5, 2000)
+
+# Test invalid annual_rate type: should raise TypeError
+def test_n_periods_invalid_annual_rate_type():
+    with pytest.raises(TypeError):
+        n_periods(1000, "a", 2000)
+
+# Test invalid future_value: should raise TypeError
+def test_n_periods_invalid_future_value_type():
+    with pytest.raises(TypeError):
+        n_periods(1000, 5, "2000")
+
+# Test invalid contribution: should raise TypeError
+def test_n_periods_invalid_contribution_type():
+    with pytest.raises(TypeError):
+        n_periods(1000, 5, 2000, "50")
 
 # Test warning appears for annual_rate between 0 and 1:
 def test_n_periods_low_interest_warning():
