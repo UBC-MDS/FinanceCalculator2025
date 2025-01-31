@@ -27,6 +27,10 @@ This package serves as a convenient tool for managing personal finances, offerin
 ``` bash
 $ pip install financecalculator2025
 ```
+------------------------------------------------------------------------
+
+## Documentation
+Our online documentation can be found [here](https://financecalculator.readthedocs.io/en/latest/?badge=latest)
 
 ------------------------------------------------------------------------
 
