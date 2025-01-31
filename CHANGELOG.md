@@ -1,12 +1,17 @@
 # CHANGELOG
 
 
-## v0.2.1 (2025-01-30)
+## v0.2.2 (2025-01-31)
 
 ### Bug Fixes
 
-- Issue69 fixed, added Developer Note to README addressing issues with test suite instructions
-  ([`9aea9ef`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/9aea9efcae98c07ab3d1c826eed41a624b609f66))
+- All tests are running with no warnings, thank you Shell
+  ([`3f7c0be`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/3f7c0be80bbc19bb960fe73ca765324205308342))
+
+
+## v0.2.1 (2025-01-30)
+
+### Bug Fixes
 
 - Issue62 fixed, all team members added into pyproject.toml
   ([`a1feb9e`](https://github.com/UBC-MDS/FinanceCalculator2025/commit/a1feb9ece317e20f8566d78c8e4aa30e7a00b8b0))
