@@ -118,11 +118,13 @@ payment = calculate_contribution(principal=20000, future_value=0, annual_rate=5,
 ```
 fv = future_value(principal=5000, annual_rate=7, n_periods=36, contribution=200)
 ```
+<img src="https://github.com/UBC-MDS/FinanceCalculator2025/blob/main/img/fv_df_output.png?raw=true">
 
 **Calculate present value for a target amount**
 ```
-pv = present_value(principal=0, annual_rate=4, n_periods=12, contribution=500)
+pv = present_value(principal=5000, annual_rate=4, n_periods=120, contribution=50)
 ```
+<img src="https://github.com/UBC-MDS/FinanceCalculator2025/blob/main/img/pv_df_output.png?raw=true">
 
 **Calculate the number of months to reach a goal**
 ```
