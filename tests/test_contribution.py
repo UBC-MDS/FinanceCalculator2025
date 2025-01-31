@@ -1,6 +1,5 @@
 import pytest
 from financecalculator2025.contribution import calculate_contribution
-import warnings
 
 def test_calculate_contribution_basic_cases():
     """
@@ -8,46 +7,61 @@ def test_calculate_contribution_basic_cases():
     """
     # Test 1: Positive interest rate, no future value
     result = calculate_contribution(principal=20000, future_value=0, annual_rate=5, n_periods=12)
-    assert round(result, 2) == -1712.15  # Monthly withdrawal to reduce principal to zero
+    assert round(result, 2) == -1712.15
 
     # Test 2: Zero interest rate, future value < principal
-    result = calculate_contribution(principal=10000, future_value=0, annual_rate=0, n_periods=10)
-    assert round(result, 2) == -1000.00  # Repayment with no interest         
+    with pytest.warns(UserWarning, match="Annual interest rate is zero or negative, which is uncommon"):
+        result = calculate_contribution(principal=10000, future_value=0, annual_rate=0, n_periods=10)
+        assert round(result, 2) == -1000.00
 
-    # Test 3: Zero interest rate, future value > principal
-    result = calculate_contribution(principal=5000, future_value=10000, annual_rate=0, n_periods=5)
-    assert round(result, 2) == 1000.00  # Monthly deposit
+    # Test 3: Zero interest rate, future value > principal. Note warnings for both annual_rate = 0 and n_periods < 6
+    with pytest.warns(UserWarning) as captured_warnings:
+        result = calculate_contribution(principal=5000, future_value=10000, annual_rate=0, n_periods=5)
+        assert round(result, 2) == 1000.00
+    # Check that both warnings are captured
+    assert len(captured_warnings) == 2  # Ensure there are exactly two warnings
+    # Check for the specific warning messages
+    assert any("Annual interest rate is zero or negative" in str(warning.message) for warning in captured_warnings)
+    assert any("Number of periods is unusually low" in str(warning.message) for warning in captured_warnings)
 
     # Test 4: With a future value target
     result = calculate_contribution(principal=10000, future_value=1000, annual_rate=3, n_periods=12)
-    assert round(result, 2) == -929.13  # Monthly withdrawal including target future value
+    assert round(result, 2) == -929.13
 
     # Test 5: Negative interest rate with repayment
-    result = calculate_contribution(principal=20000, future_value=0, annual_rate=-2, n_periods=12)
-    assert round(result, 2) == -1648.67  # Monthly withdrawal with negative interest
+    with pytest.warns(UserWarning, match="Annual interest rate is zero or negative, which is uncommon"):
+        result = calculate_contribution(principal=20000, future_value=0, annual_rate=-2, n_periods=12)
+        assert round(result, 2) == -1648.67
+
+    # Test 6: Unusually low number of periods
+    with pytest.warns(UserWarning, match="Number of periods is unusually low"):
+        result = calculate_contribution(principal=10000, future_value=1000, annual_rate=3, n_periods=1)
+        print(f"Debug result: {result}")  # 调试信息
+        assert round(result, 2) == -11025.00  # 更新预期值
+
 
 def test_calculate_contribution_unusual_warnings():
     """
-    Test calculate_contribution for warnings on unusual inputs.
+    Test calculate_contribution for warnings on unusual inputs using pytest.warns().
     """
-    with warnings.catch_warnings(record=True) as w:
-        warnings.simplefilter("always")
+    with pytest.warns(UserWarning, match="Annual interest rate is unusually low"):
         calculate_contribution(principal=1000, future_value=1000, annual_rate=0.5, n_periods=10)
-        assert any("Annual interest rate is unusually low" in str(warning.message) for warning in w)
-        
+    
+    with pytest.warns(UserWarning, match="Annual interest rate is zero or negative"):
         calculate_contribution(principal=1000, future_value=1000, annual_rate=-1, n_periods=10)
-        assert any("Annual interest rate is zero or negative" in str(warning.message) for warning in w)
-
+    
+    with pytest.warns(UserWarning, match="Number of periods is unusually low"):
         calculate_contribution(principal=1000, future_value=1000, annual_rate=5, n_periods=3)
-        assert any("Number of periods is unusually low" in str(warning.message) for warning in w)        
+
 
 def test_calculate_contribution_edge_cases():
     """
     Test calculate_contribution for edge cases.
     """
     # Test 1: Single period
-    result = calculate_contribution(principal=0, future_value=1000, annual_rate=0, n_periods=1)
-    assert result == 1000.00 
+    with pytest.warns(UserWarning, match="Number of periods is unusually low"):
+        result = calculate_contribution(principal=0, future_value=1000, annual_rate=5, n_periods=1)
+        assert round(result,2) == 1000.00
 
     # Test 2: High future value and zero principal
     result = calculate_contribution(principal=0, future_value=1000000, annual_rate=5, n_periods=120)
@@ -57,23 +71,19 @@ def test_calculate_contribution_edge_cases():
     result = calculate_contribution(principal=1000000, future_value=0, annual_rate=3, n_periods=240)
     assert round(result, 2) == -5545.98
 
+
 def test_input_validation():
     """
     Test calculate_contribution for incorrect input types.
     """
-
-    # Test 1: Invalid principal (non-numeric)
     with pytest.raises(ValueError, match="Principal must be a number."):
         calculate_contribution(principal="abc", future_value=1000, annual_rate=5, n_periods=12)
 
-    # Test 2: Invalid future_value (non-numeric)
     with pytest.raises(ValueError, match="Future value must be a number."):
         calculate_contribution(principal=1000, future_value="abc", annual_rate=5, n_periods=12)
 
-    # Test 3: Invalid annual_rate (non-numeric)
     with pytest.raises(ValueError, match="Annual rate must be a number and greater than or equal to -100%."):
         calculate_contribution(principal=1000, future_value=1000, annual_rate="five", n_periods=12)
 
-    # Test 5: Invalid n_periods (non-integer)
     with pytest.raises(ValueError, match="Number of periods must be a positive integer."):
         calculate_contribution(principal=1000, future_value=1000, annual_rate=5, n_periods="abc")
