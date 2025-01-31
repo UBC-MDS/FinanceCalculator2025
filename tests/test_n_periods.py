@@ -33,22 +33,26 @@ def test_n_periods_zero_interest_and_zero_contribution():
         with pytest.raises(ValueError):
             n_periods(1000, 0, 2000, contribution=0)
 
+# Test invalid principal type: should raise TypeError
 def test_n_periods_type_error():
     with pytest.raises(TypeError):
         n_periods("1000", 5, 2000)
 
+# Test warning appears for annual_rate between 0 and 1:
 def test_n_periods_low_interest_warning():
     with warnings.catch_warnings(record=True) as w:
         n_periods(1000, 0.5, 2000)
         assert len(w) == 1
         assert issubclass(w[-1].category, UserWarning)
 
+# Test warning appears for n_periods < 6 months
 def test_n_periods_low_periods_warning():
     with warnings.catch_warnings(record=True) as w:
         n_periods(1000, 5, 1500, contribution=100)
         assert len(w) == 1
         assert issubclass(w[-1].category, UserWarning)
 
+# Test warning appears for negative annual_rate:
 def test_n_periods_negative_interest_warning():
     with warnings.catch_warnings(record=True) as w:
         n_periods(1000, -5, 2000)
