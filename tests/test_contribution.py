@@ -10,12 +10,19 @@ def test_calculate_contribution_basic_cases():
     assert round(result, 2) == -1712.15
 
     # Test 2: Zero interest rate, future value < principal
-    result = calculate_contribution(principal=10000, future_value=0, annual_rate=0, n_periods=10)
-    assert round(result, 2) == -1000.00
+    with pytest.warns(UserWarning, match="Annual interest rate is zero or negative, which is uncommon"):
+        result = calculate_contribution(principal=10000, future_value=0, annual_rate=0, n_periods=10)
+        assert round(result, 2) == -1000.00
 
-    # Test 3: Zero interest rate, future value > principal
-    result = calculate_contribution(principal=5000, future_value=10000, annual_rate=0, n_periods=5)
-    assert round(result, 2) == 1000.00
+    # Test 3: Zero interest rate, future value > principal. Note warnings for both annual_rate = 0 and n_periods < 6
+    with pytest.warns(UserWarning) as captured_warnings:
+        result = calculate_contribution(principal=5000, future_value=10000, annual_rate=0, n_periods=5)
+        assert round(result, 2) == 1000.00
+    # Check that both warnings are captured
+    assert len(captured_warnings) == 2  # Ensure there are exactly two warnings
+    # Check for the specific warning messages
+    assert any("Annual interest rate is zero or negative" in str(warning.message) for warning in captured_warnings)
+    assert any("Number of periods is unusually low" in str(warning.message) for warning in captured_warnings)
 
     # Test 4: With a future value target
     result = calculate_contribution(principal=10000, future_value=1000, annual_rate=3, n_periods=12)
@@ -53,8 +60,8 @@ def test_calculate_contribution_edge_cases():
     """
     # Test 1: Single period
     with pytest.warns(UserWarning, match="Number of periods is unusually low"):
-        result = calculate_contribution(principal=0, future_value=1000, annual_rate=0, n_periods=1)
-        assert result == 1000.00
+        result = calculate_contribution(principal=0, future_value=1000, annual_rate=5, n_periods=1)
+        assert round(result,2) == 1000.00
 
     # Test 2: High future value and zero principal
     result = calculate_contribution(principal=0, future_value=1000000, annual_rate=5, n_periods=120)
