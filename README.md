@@ -9,7 +9,7 @@
 ## Project Summary
 
 **`FinanceCalculator2025`** is a Python package for calculating financial metrics specifically designed for loans or investment scenarios.\
-This package serves as a convenient tool for managing personal finances, offering functionalities such as Contribution, Future Value, Present Value, and Number of Periods Calculations.
+This package serves as a convenient tool for managing personal finances, offering functionalities such as Contributions (`calculate_contribution`), Future Value (`future_value`), Present Value (`present_value`), and Number of Periods (`n_periods`) Calculations.
 
 ------------------------------------------------------------------------
 
@@ -64,7 +64,9 @@ This package offers four key functions:
 
 ## Python Ecosystem
 
-The `FinanceCalculator2025` package situates itself within the Python ecosystem as a learning-oriented initiative aimed at developing practical skills in financial computation and programming. While the Python ecosystem already includes robust packages and applications like [Loan Calculator](https://github.com/yanomateus/loan-calculator) and [Financial Calculator App](https://github.com/dilumdesilva/Financial-Calculator-App), this project differentiates itself by offering an accessible, user-friendly tools that simplifies core financial concepts. With intuitive function names like calculate_contribution, future_value, and present_value, it allows users — especially beginners and students — to quickly grasp the essentials without needing to understand complex financial formulas. This project also serves as a hands-on exercise for those eager to deepen their understanding of both finance and Python programming, making it a valuable resource for anyone looking to deepen their understanding of financial concepts and Python development.
+The `FinanceCalculator2025` package situates itself within the Python ecosystem as a learning-oriented initiative aimed at developing practical skills in financial computation and programming. While the Python ecosystem already includes robust packages and applications like [Loan Calculator](https://github.com/yanomateus/loan-calculator) and [Financial Calculator App](https://github.com/dilumdesilva/Financial-Calculator-App), this project differentiates itself by offering an accessible, user-friendly tools that simplifies core financial concepts.   
+  
+With intuitive function names like `calculate_contribution`, `future_value`, `present_value`, and `n_periods`, this package allows users — especially beginners and students — to quickly grasp the essentials without needing to understand complex financial formulas. This package also serves as a hands-on exercise for those eager to deepen their understanding of both finance and Python programming, making it a valuable resource for anyone looking to deepen their understanding of financial concepts and Python development.
 
 ------------------------------------------------------------------------
 
