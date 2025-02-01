@@ -5,7 +5,8 @@
 [![codecov](https://codecov.io/gh/UBC-MDS/FinanceCalculator2025/graph/badge.svg?token=n9iRr2joRS)](https://codecov.io/gh/UBC-MDS/FinanceCalculator2025)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-360/)
 [![ci-cd](https://github.com/UBC-MDS/financecalculator2025/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/UBC-MDS/financecalculator2025/actions/workflows/ci-cd.yml)
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)]
+![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)
+![PyPI version](https://img.shields.io/pypi/v/financecalculator2025.svg)
 
 <img src="https://github.com/UBC-MDS/FinanceCalculator2025/blob/main/img/finance-calculator-200px.png?raw=true">
 
