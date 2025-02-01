@@ -103,6 +103,8 @@ pytest tests/ --cov=financecalculator2025
 
 The `FinanceCalculator2025` package allows users to perform essential financial calculations conveniently. Below is a quick start example of how to use this package:
 
+1. Import the required functions from the package:
+
 ```
 import pandas as pd
 
@@ -113,24 +115,32 @@ from financecalculator2025.contribution import calculate_contribution
 from financecalculator2025.n_periods import n_periods
 ```
 
-**Calculate periodic payments for a loan:**
+2. Use available functions based on your needs:
+
+- If you need to calculate periodic payments for a loan, you can use `calculate_contribution` function:
+
 ```
 payment = calculate_contribution(principal=20000, future_value=0, annual_rate=5, n_periods=24)
 ```
 
-**Calculate future value of an investment:**
+- If you need to calculate future value of an investment, you can use `future_value` function:
+
 ```
-fv = future_value(principal=5000, annual_rate=7, n_periods=36, contribution=200)
+future_value = future_value(principal=5000, annual_rate=7, n_periods=36, contribution=200)
 ```
+
 <img src="https://github.com/UBC-MDS/FinanceCalculator2025/blob/main/img/fv_df_output.png?raw=true">
 
-**Calculate present value for a target amount**
+- If you need to calculate present value for a target amount, you can use `present_value` function:
+
 ```
-pv = present_value(principal=5000, annual_rate=4, n_periods=120, contribution=50)
+present_value = present_value(principal=5000, annual_rate=4, n_periods=120, contribution=50)
 ```
+
 <img src="https://github.com/UBC-MDS/FinanceCalculator2025/blob/main/img/pv_df_output.png?raw=true">
 
-**Calculate the number of months to reach a goal**
+-  If you need to calculate the number of months to reach a goal, , you can use `n_periods` function:
+
 ```
 months = n_periods(principal=10000, annual_rate=6, future_value=50000, contribution=300)
 ```
