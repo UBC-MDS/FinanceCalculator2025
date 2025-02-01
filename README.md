@@ -147,6 +147,21 @@ months = n_periods(principal=10000, annual_rate=6, future_value=50000, contribut
 
 ------------------------------------------------------------------------
 
+## Performance Benchmarks
+
+We believe this package is primarily used for personal financial calculations. However, to enhance credibility, we have also conducted performance testing on `FinanceCalculator` using `pytest-benchmark`. Below are the results:
+
+| Function | Min Time (ns) | Max Time (ns) | Mean Time (ns) | StdDev (ns) | OPS (Kops/s) |
+|----------|-------------|-------------|-------------|-------------|-------------|
+| `calculate_contribution` | **699.88** | 102,499.96 | **806.38** | 508.71 | **1,240.09** |
+| `n_periods` | 2,099.89 | 314,299.94 | 2,582.54 | 2,783.13 | 387.21 |
+| `present_value` | 114,100.05 | 646,800.03 | 127,955.33 | 45,888.68 | 7.81 |
+| `future_value` | 116,100.06 | **869,199.86** | 131,290.12 | 43,567.95 | 7.61 |
+
+Performance tests were run using Python `pytest-benchmark` with `100,000` iterations.
+
+------------------------------------------------------------------------
+
 ## Contributing
 
 Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
