@@ -2,10 +2,11 @@
 
 ------------------------------------------------------------------------
 [![Documentation Status](https://readthedocs.org/projects/financecalculator/badge/?version=latest)](https://financecalculator.readthedocs.io/en/latest/?badge=latest)
+[![PyPI version](https://img.shields.io/pypi/v/financecalculator2025.svg)](https://pypi.org/project/financecalculator2025/)
 [![codecov](https://codecov.io/gh/UBC-MDS/FinanceCalculator2025/graph/badge.svg?token=n9iRr2joRS)](https://codecov.io/gh/UBC-MDS/FinanceCalculator2025)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-360/)
 [![ci-cd](https://github.com/UBC-MDS/financecalculator2025/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/UBC-MDS/financecalculator2025/actions/workflows/ci-cd.yml)
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)]
+![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)
 
 <img src="https://github.com/UBC-MDS/FinanceCalculator2025/blob/main/img/finance-calculator-200px.png?raw=true">
 
@@ -102,6 +103,8 @@ pytest tests/ --cov=financecalculator2025
 
 The `FinanceCalculator2025` package allows users to perform essential financial calculations conveniently. Below is a quick start example of how to use this package:
 
+1. Import the required functions from the package:
+
 ```
 import pandas as pd
 
@@ -112,27 +115,50 @@ from financecalculator2025.contribution import calculate_contribution
 from financecalculator2025.n_periods import n_periods
 ```
 
-**Calculate periodic payments for a loan:**
+2. Use available functions based on your needs:
+
+- If you need to calculate periodic payments for a loan, you can use `calculate_contribution` function:
+
 ```
 payment = calculate_contribution(principal=20000, future_value=0, annual_rate=5, n_periods=24)
 ```
 
-**Calculate future value of an investment:**
+- If you need to calculate future value of an investment, you can use `future_value` function:
+
 ```
-fv = future_value(principal=5000, annual_rate=7, n_periods=36, contribution=200)
+future_value = future_value(principal=5000, annual_rate=7, n_periods=36, contribution=200)
 ```
+
 <img src="https://github.com/UBC-MDS/FinanceCalculator2025/blob/main/img/fv_df_output.png?raw=true">
 
-**Calculate present value for a target amount**
+- If you need to calculate present value for a target amount, you can use `present_value` function:
+
 ```
-pv = present_value(principal=5000, annual_rate=4, n_periods=120, contribution=50)
+present_value = present_value(principal=5000, annual_rate=4, n_periods=120, contribution=50)
 ```
+
 <img src="https://github.com/UBC-MDS/FinanceCalculator2025/blob/main/img/pv_df_output.png?raw=true">
 
-**Calculate the number of months to reach a goal**
+-  If you need to calculate the number of months to reach a goal, , you can use `n_periods` function:
+
 ```
 months = n_periods(principal=10000, annual_rate=6, future_value=50000, contribution=300)
 ```
+
+------------------------------------------------------------------------
+
+## Performance Benchmarks
+
+We believe this package is primarily used for personal financial calculations. However, to enhance credibility, we have also conducted performance testing on `FinanceCalculator` using `pytest-benchmark`. Below are the results:
+
+| Function | Min Time (ns) | Max Time (ns) | Mean Time (ns) | StdDev (ns) | OPS (Kops/s) |
+|----------|-------------|-------------|-------------|-------------|-------------|
+| `calculate_contribution` | **699.88** | 102,499.96 | **806.38** | 508.71 | **1,240.09** |
+| `n_periods` | 2,099.89 | 314,299.94 | 2,582.54 | 2,783.13 | 387.21 |
+| `present_value` | 114,100.05 | 646,800.03 | 127,955.33 | 45,888.68 | 7.81 |
+| `future_value` | 116,100.06 | **869,199.86** | 131,290.12 | 43,567.95 | 7.61 |
+
+Performance tests were run using Python `pytest-benchmark` with `100,000` iterations.
 
 ------------------------------------------------------------------------
 
